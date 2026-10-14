@@ -6,6 +6,7 @@ export type NewsItem = {
   summary: string;
   type: "Rilis Fitur" | "Pembaruan" | "Kegiatan" | "Pengumuman";
   date: string; // YYYY-MM-DD
+  content?: string[]; // isi berita, satu teks = satu paragraf
 };
 
 export const news: NewsItem[] = [
@@ -53,5 +54,8 @@ export const news: NewsItem[] = [
   },
 ];
 
-export const latestNews = (n = 3) =>
-  [...news].sort((a, b) => b.date.localeCompare(a.date)).slice(0, n);
+export const sortedNews = () => [...news].sort((a, b) => b.date.localeCompare(a.date));
+
+export const latestNews = (n = 3) => sortedNews().slice(0, n);
+
+export const getNews = (slug: string) => news.find((n) => n.slug === slug);

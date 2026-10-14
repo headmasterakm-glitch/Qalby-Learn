@@ -8,6 +8,7 @@ import AppIcon from "@/components/AppIcon";
 import AppsGrid from "@/components/AppsGrid";
 import ArticleCard from "@/components/ArticleCard";
 import NewsList from "@/components/NewsList";
+import CtaBanner from "@/components/CtaBanner";
 
 export default function HomePage() {
   const heroApps = activeApps.slice(0, 4);
@@ -127,7 +128,7 @@ export default function HomePage() {
       </section>
 
       {/* TESTIMONI */}
-      <section className="container-site flex flex-col gap-8 pb-24 pt-14">
+      <section className="container-site flex flex-col gap-8 pb-16 pt-14">
         <h2 className="section-title text-center">Kata mereka tentang Qalby</h2>
         <div className="grid gap-5 md:grid-cols-3">
           {testimonials.map((t) => (
@@ -146,6 +147,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <CtaBanner />
     </>
   );
 }

@@ -13,6 +13,9 @@ export const site = {
   contact: {
     email: "[email@domain.com]",
     whatsapp: "[08xx-xxxx-xxxx]",
+    // Nomor WhatsApp format internasional TANPA tanda + dan spasi,
+    // contoh 081234567890 → "6281234567890". Dipakai formulir Kontak.
+    whatsappIntl: "62xxxxxxxxxx",
     address: "[Alamat lengkap]",
   },
   social: [
@@ -27,6 +30,23 @@ export const site = {
     { label: "News", href: "/news" },
     { label: "Tentang", href: "/tentang" },
     { label: "Kontak", href: "/kontak" },
+  ],
+};
+
+// Halaman Tentang Kami — ganti dengan profil asli.
+export const about = {
+  intro:
+    "Qalby Learn lahir dari kebutuhan sekolah akan aplikasi yang sederhana, terhubung, dan dibuat dengan hati. Semua aplikasi Qalby kini dapat diakses dari satu platform.",
+  developer: {
+    name: "[Nama Pengembang]",
+    role: "[Jabatan / Profesi]",
+    bio: "[Profil singkat pengembang: latar belakang, pengalaman di dunia pendidikan, dan alasan membuat aplikasi Qalby.]",
+  },
+  vision: "[Visi Qalby Learn, contoh: Menjadi ekosistem aplikasi pendidikan yang memudahkan setiap sekolah di Indonesia.]",
+  mission: [
+    "[Misi 1, contoh: Menyediakan aplikasi yang mudah digunakan oleh guru, siswa, dan kepala sekolah.]",
+    "[Misi 2]",
+    "[Misi 3]",
   ],
 };
 

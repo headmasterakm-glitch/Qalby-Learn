@@ -11,6 +11,7 @@ export type Article = {
   readMinutes: number;
   image?: string; // path gambar di /public, opsional
   tags: string[];
+  content?: string[]; // isi artikel, satu teks = satu paragraf
 };
 
 export const articles: Article[] = [
@@ -76,5 +77,16 @@ export const articles: Article[] = [
   },
 ];
 
-export const latestArticles = (n = 3) =>
-  [...articles].sort((a, b) => b.date.localeCompare(a.date)).slice(0, n);
+export const sortedArticles = () =>
+  [...articles].sort((a, b) => b.date.localeCompare(a.date));
+
+export const latestArticles = (n = 3) => sortedArticles().slice(0, n);
+
+export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);
+
+export const articleCategories: Article["category"][] = [
+  "Tips Mengajar",
+  "Teknologi Pendidikan",
+  "Parenting",
+  "Panduan Aplikasi",
+];

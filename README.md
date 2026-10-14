@@ -3,7 +3,26 @@
 Portal ekosistem aplikasi pendidikan Qalby — Q_Student, Q_Teacher, Q_Assessment, Q_Headmaster, Q_Meeting, Hari Santri Nasional, dan lainnya — lengkap dengan Artikel dan News.
 
 **Tahap 1 (selesai):** struktur proyek + halaman Beranda.
-Tahap berikutnya: katalog & detail aplikasi → artikel & news → tentang/kontak → panel admin (CMS).
+**Tahap 2 (selesai):** Katalog & Detail Aplikasi, Artikel (daftar + baca), News (daftar + detail), Tentang, Kontak (formulir ke WhatsApp), Masuk (pintu ke tiap aplikasi), halaman 404, sitemap.xml & robots.txt.
+Tahap berikutnya: panel admin (CMS) + database + login.
+
+## Halaman yang tersedia
+| Alamat | Isi |
+|---|---|
+| `/` | Beranda |
+| `/aplikasi` | Katalog aplikasi (pencarian + filter peran) |
+| `/aplikasi/q-student` dst. | Detail tiap aplikasi |
+| `/artikel`, `/artikel/<judul>` | Daftar & halaman baca artikel |
+| `/news`, `/news/<judul>` | Daftar & detail berita |
+| `/tentang` | Profil, visi & misi |
+| `/kontak` | Formulir kontak (dikirim lewat WhatsApp) |
+| `/masuk` | Tombol masuk ke tiap aplikasi |
+
+## Data yang perlu diisi (semua di folder `src/data/`)
+- `site.ts` — kontak, **whatsappIntl** (nomor WA format 62…), media sosial, statistik, testimoni, visi-misi, profil pengembang
+- `apps.ts` — deskripsi, fitur, pengguna, panduan, **url** & **loginUrl** tiap aplikasi
+- `articles.ts` / `news.ts` — tambahkan `content: ["paragraf 1", "paragraf 2"]` untuk isi lengkap
+- Tangkapan layar aplikasi: unggah gambar ke `public/screenshots/`, lalu isi `screenshots: ["/screenshots/nama-file.png"]`
 
 ## Teknologi
 - Next.js 14 (App Router) + TypeScript
