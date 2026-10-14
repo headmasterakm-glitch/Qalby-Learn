@@ -10,7 +10,7 @@ export default function AppCard({ app }: { app: AppItem }) {
         <span className={`rounded-full px-3 py-1.5 text-xs font-bold ${toneClass[app.tone].badge}`}>{app.roleLabel}</span>
       </div>
       <h3 className="text-[22px] font-bold">{app.name}</h3>
-      <p className="text-muted flex-grow text-[15px] leading-relaxed">{app.description}</p>
+      <p className="text-muted line-clamp-4 flex-grow text-[15px] leading-relaxed">{app.description}</p>
       <div className="flex flex-wrap gap-2.5">
         <a href={app.url} className="btn-primary" target="_blank" rel="noopener noreferrer">
           Buka Aplikasi

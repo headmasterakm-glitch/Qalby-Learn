@@ -41,7 +41,7 @@ export default function TentangPage() {
           </section>
         </div>
 
-        <section className="card flex flex-wrap items-center gap-8 p-8">
+        <section className="card flex flex-wrap items-start gap-8 p-8">
           <div className="flex h-28 w-28 shrink-0 items-center justify-center rounded-full bg-brand-50 dark:bg-[#241A48]">
             <Image src={site.logo.mark} alt="" width={64} height={62} />
           </div>
@@ -49,7 +49,11 @@ export default function TentangPage() {
             <span className="eyebrow">Pengembang</span>
             <h2 className="text-2xl font-extrabold">{about.developer.name}</h2>
             <p className="font-semibold text-brand-500 dark:text-brand-300">{about.developer.role}</p>
-            <p className="text-muted leading-relaxed">{about.developer.bio}</p>
+            <div className="text-muted flex flex-col gap-3 leading-relaxed">
+              {about.developer.bio.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
           </div>
         </section>
 

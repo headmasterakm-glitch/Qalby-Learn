@@ -40,7 +40,7 @@ export default function ArtikelDetailPage({ params }: Props) {
   const paragraphs =
     article.content && article.content.length > 0
       ? article.content
-      : [article.excerpt, "[Isi lengkap artikel ditulis di sini. Tambahkan teks di file src/data/articles.ts pada bagian content.]"];
+      : [article.excerpt];
 
   return (
     <>

@@ -3,10 +3,8 @@
 // lalu ubah isinya. Semua halaman (Beranda, Katalog, Detail, Masuk, Footer)
 // akan menyesuaikan otomatis.
 //
-// Yang paling penting diisi:
-//   url       : alamat aplikasi (contoh: "https://qstudent.example.com")
-//   loginUrl  : alamat halaman login aplikasi (boleh sama dengan url)
-//   description, features, audience, guide : teks penjelasan
+// Aturan menulis teks: tulis di antara tanda kutip "...". Jika teks Anda
+// membutuhkan tanda kutip, gunakan kutip tunggal ' di dalamnya.
 
 export type Role = "Siswa" | "Guru" | "Kepala Sekolah" | "Umum";
 
@@ -20,15 +18,18 @@ export type IconKey =
 
 export type AppItem = {
   slug: string; // bagian alamat halaman detail: /aplikasi/<slug>
-  name: string;
-  roles: Role[];
-  roleLabel: string;
-  short: string; // deskripsi sangat singkat (2–4 kata)
+  name: string; // nama pendek yang tampil di kartu
+  fullName: string; // nama lengkap aplikasi
+  roles: Role[]; // dipakai untuk filter peran
+  roleLabel: string; // label peran yang tampil
+  short: string; // keterangan sangat singkat (2–5 kata)
   description: string; // deskripsi lengkap
   features: string[]; // fitur utama
   audience: string; // siapa penggunanya
   guide: string[]; // panduan singkat, urut langkah demi langkah
-  screenshots: string[]; // path gambar di folder public, contoh "/screenshots/q-student-1.png"
+  loginNote?: string; // keterangan cara masuk
+  extraLinks?: { label: string; url: string }[]; // tautan tambahan
+  screenshots: string[]; // path gambar di folder public, contoh "/screenshots/asesmen-1.png"
   url: string;
   loginUrl?: string;
   icon: IconKey;
@@ -39,133 +40,201 @@ export type AppItem = {
 
 export const apps: AppItem[] = [
   {
-    slug: "q-student",
-    name: "Q_Student",
-    roles: ["Siswa"],
-    roleLabel: "Siswa",
-    short: "Ruang belajar siswa",
+    slug: "asesmen-terpadu",
+    name: "Qalby Learn Asesmen",
+    fullName: "Qalby Learn — Aplikasi Asesmen Terpadu",
+    roles: ["Guru", "Siswa"],
+    roleLabel: "Guru & Siswa",
+    short: "Asesmen & analisis butir soal",
     description:
-      "[Deskripsi Q_Student, misalnya: materi belajar, tugas, dan jadwal pelajaran dalam satu aplikasi.]",
-    features: ["[Fitur 1]", "[Fitur 2]", "[Fitur 3]"],
-    audience: "Siswa yang ingin mengakses materi, tugas, dan jadwal pelajaran dari mana saja.",
-    guide: [
-      "Buka aplikasi melalui tombol Buka Aplikasi.",
-      "Masuk menggunakan akun yang diberikan sekolah.",
-      "[Langkah berikutnya]",
+      "Aplikasi asesmen untuk sekolah, madrasah, dan pesantren yang menyatukan seluruh siklus penilaian: kisi-kisi, penulisan dan telaah soal, ujian CBT maupun luring, koreksi, analisis butir soal otomatis, laporan, sampai tindak lanjut remedial dan pengayaan. Mendukung Kurikulum Merdeka dan Kurikulum Berbasis Cinta (KBC). Setiap tahap bisa dikerjakan manual atau dibantu AI.",
+    features: [
+      "Analisis butir soal otomatis: tingkat kesukaran, daya pembeda, efektivitas pengecoh, dan reliabilitas (KR-20/Alpha) langsung muncul setelah ujian, lengkap dengan keputusan Dipakai, Direvisi, atau Dibuang.",
+      "Observasi sikap KBC (Panca Cinta): guru di kelas dan musrif/musrifah di asrama mengisi lembar observasi dari HP, lalu hasilnya direkap per dimensi dan instrumennya diuji validitas serta reliabilitasnya.",
+      "Ujian CBT dan luring: siswa cukup memasukkan kode ujian tanpa email. Jawaban tersimpan di perangkat saat internet putus dan terkirim otomatis saat tersambung.",
+      "Asisten AI: membantu menyusun kisi-kisi, membuat draf soal, menelaah soal, memberi saran skor uraian, dan menulis rencana remedial. Keputusan akhir tetap di tangan guru.",
+      "Dokumen administrasi sekali klik: kisi-kisi, naskah soal, kartu soal, analisis butir, dan program remedial-pengayaan tercetak berkop sekolah, siap untuk supervisi.",
     ],
+    audience:
+      "Guru dan admin sekolah, madrasah, atau pesantren yang menyusun dan menganalisis asesmen; siswa yang mengikuti ujian; serta musrif/musrifah yang mengisi observasi sikap.",
+    guide: [
+      "Buka halaman login, daftar akun, lalu pilih Daftarkan sekolah baru. Guru lain cukup memilih Gabung ke sekolah dengan kode dari admin.",
+      "Tambahkan kelas dan tempel daftar siswa dari Excel di menu Kelas & Siswa.",
+      "Klik Buat Asesmen Baru, susun kisi-kisi, tulis atau buat soal, lalu telaah.",
+      "Di tahap Rakit & Jadwal, terbitkan ujian dan bagikan kode ujian ke siswa.",
+      "Setelah siswa selesai, buka tahap Analisis Butir, Laporan, dan Tindak Lanjut.",
+    ],
+    loginNote: "Guru masuk lewat halaman login. Siswa yang akan ujian cukup membuka halaman ujian dan memasukkan kode ujian.",
+    extraLinks: [{ label: "Halaman ujian siswa", url: "https://qalbylearn.netlify.app/ujian.html" }],
     screenshots: [],
-    url: "#",
-    icon: "student",
-    tone: "teal",
+    url: "https://qalbylearn.netlify.app",
+    loginUrl: "https://qalbylearn.netlify.app/app.html",
+    icon: "assessment",
+    tone: "blue",
     active: true,
     order: 1,
   },
   {
-    slug: "q-teacher",
-    name: "Q_Teacher",
-    roles: ["Guru"],
-    roleLabel: "Guru",
-    short: "Asisten kerja guru",
+    slug: "adm-guru-karyawan",
+    name: "ADM Guru & Karyawan",
+    fullName: "Administrasi Guru & Karyawan PPM Darul Mahfudz",
+    roles: ["Guru", "Kepala Sekolah"],
+    roleLabel: "Guru & Karyawan",
+    short: "Kinerja, absensi & jurnal guru",
     description:
-      "[Deskripsi Q_Teacher, misalnya: administrasi kelas, presensi, dan perangkat ajar guru.]",
-    features: ["[Fitur 1]", "[Fitur 2]", "[Fitur 3]"],
-    audience: "Guru mata pelajaran dan wali kelas.",
-    guide: [
-      "Buka aplikasi melalui tombol Buka Aplikasi.",
-      "Masuk menggunakan akun guru.",
-      "[Langkah berikutnya]",
+      "Aplikasi web untuk mengelola administrasi guru dan karyawan di lingkungan PPM Darul Mahfudz (MTs, MA, MDT, SPM Ula, serta Keamanan & Bidang Usaha). Mencakup penilaian kinerja, absensi, jurnal guru, kelengkapan dokumen, serta rekap gaji dan keuangan untuk bendahara.",
+    features: [
+      "Raport kinerja guru dan karyawan: skor otomatis dari kehadiran, kelengkapan administrasi, ketepatan nilai, dan supervisi, lengkap dengan nilai budaya kerja.",
+      "Absen harian dan potongan otomatis: piket menandai kehadiran, lalu potongan dihitung dari keterlambatan dan ketidakhadiran.",
+      "Jurnal guru: jurnal mengajar dan jurnal harian (wali kelas, piket, panitia, pembina, dan tugas lain) yang terhubung ke pimpinan masing-masing lembaga.",
+      "Input dokumen administrasi: centang kelengkapan dokumen, dengan kolom link Google Drive untuk tiap dokumen.",
+      "Rekap bendahara: rekap gaji, kehadiran, potongan, tugas tambahan, keuangan, dan iuran santri, yang bisa diunduh dalam format Word, Excel, dan PDF.",
     ],
+    audience: "Kepala madrasah, guru piket, guru, karyawan, dan bendahara di lingkungan PPM Darul Mahfudz.",
+    guide: [
+      "Buka link aplikasi di browser.",
+      "Masuk dengan email dan kata sandi akun lembaga yang diberikan admin.",
+      "Pilih menu sesuai peran: kepala madrasah, guru piket, guru, atau bendahara.",
+      "Isi data (absen, jurnal, atau dokumen), lalu klik Simpan.",
+      "Untuk laporan, buka rekap lalu klik Cetak atau unduh PDF, Word, atau Excel.",
+    ],
+    loginNote: "Halaman login muncul otomatis saat link dibuka.",
     screenshots: [],
-    url: "#",
+    url: "https://admgurudarulmahfudz.netlify.app",
     icon: "teacher",
     tone: "gold",
     active: true,
     order: 2,
   },
   {
-    slug: "q-assessment",
-    name: "Q_Assessment",
-    roles: ["Guru", "Siswa"],
-    roleLabel: "Guru & Siswa",
-    short: "Ujian & penilaian",
+    slug: "adm-kamad",
+    name: "ADM KAMAD",
+    fullName: "Administrasi Kepala Madrasah (ADM KAMAD) PPM Darul Mahfudz",
+    roles: ["Kepala Sekolah"],
+    roleLabel: "Kepala Madrasah",
+    short: "Administrasi kepala madrasah",
     description:
-      "[Deskripsi Q_Assessment, misalnya: ujian daring, bank soal, dan rekap nilai otomatis.]",
-    features: ["[Fitur 1]", "[Fitur 2]", "[Fitur 3]"],
-    audience: "Guru yang menyusun dan menilai ujian, serta siswa yang mengerjakannya.",
-    guide: [
-      "Buka aplikasi melalui tombol Buka Aplikasi.",
-      "Guru: buat bank soal dan jadwalkan ujian.",
-      "Siswa: masuk dan kerjakan ujian sesuai jadwal.",
+      "Aplikasi administrasi digital untuk kepala madrasah di lingkungan PPM Darul Mahfudz, yaitu SPM Ula, MTs, MA, dan MDT. Isinya mencakup perencanaan, data guru dan tendik, supervisi, penilaian kinerja dan PKKM, budaya Kurikulum Berbasis Cinta (KBC), serta agenda dan persuratan. Semua dokumen bisa dicetak langsung dari aplikasi.",
+    features: [
+      "Perencanaan madrasah: menyusun RKJM 4 tahun, RKTM/RKAM beserta anggaran dan statusnya, serta daftar periksa Kurikulum Operasional Madrasah.",
+      "Guru & tendik dan supervisi: mengelola data PTK, mencetak SK pembagian tugas, serta mencatat supervisi akademik dan manajerial lengkap dengan instrumen penilaian dan tindak lanjutnya.",
+      "Kinerja & PKKM: menilai diri dengan instrumen PKKM, menilai kinerja guru, lalu mencetak instrumen dan rekapnya.",
+      "Budaya Cinta (KBC): menyusun program pembiasaan Panca Cinta, mengisi jurnal keteladanan kepala, dan mengevaluasi KBC tiap semester.",
+      "Agenda & surat: mengelola agenda kepala dan register surat masuk/keluar, mencetak surat tugas, SK tim, undangan rapat, dan surat keterangan aktif, serta membuat cadangan data.",
     ],
+    audience: "Kepala madrasah SPM Ula, MTs, MA, dan MDT di lingkungan PPM Darul Mahfudz.",
+    guide: [
+      "Buka aplikasi dan masuk dengan email dan kata sandi.",
+      "Pilih lembaga yang dikelola (SPM Ula, MTs, MA, atau MDT). Lembaga bisa diganti kapan saja lewat tombol Ganti lembaga.",
+      "Lengkapi Pengaturan: alamat kop surat, NPSN, NIP kepala, periode RKJM, visi, dan misi.",
+      "Isi menu sesuai kebutuhan: Perencanaan, Guru & Tendik, Supervisi, Kinerja & PKKM, Kewirausahaan, Budaya Cinta, dan Agenda & Surat.",
+      "Pantau kelengkapan dokumen, agenda terdekat, dan tenggat di Beranda.",
+      "Cetak dokumen yang diperlukan, dan unduh cadangan data (.json) secara berkala.",
+    ],
+    loginNote: "Halaman login langsung muncul saat aplikasi dibuka. Masuk memakai email dan kata sandi.",
     screenshots: [],
-    url: "#",
-    icon: "assessment",
-    tone: "blue",
+    url: "https://admkamad.netlify.app/",
+    icon: "headmaster",
+    tone: "clay",
     active: true,
     order: 3,
   },
   {
-    slug: "q-headmaster",
-    name: "Q_Headmaster",
-    roles: ["Kepala Sekolah"],
-    roleLabel: "Kepala Sekolah",
-    short: "Kendali kepala sekolah",
+    slug: "qalby-meeting",
+    name: "Qalby Meeting",
+    fullName: "Qalby Meeting — Notulen & Daftar Hadir Rapat",
+    roles: ["Umum"],
+    roleLabel: "Umum",
+    short: "Notulen & daftar hadir rapat",
     description:
-      "[Deskripsi Q_Headmaster, misalnya: pemantauan kinerja guru, supervisi, dan laporan sekolah.]",
-    features: ["[Fitur 1]", "[Fitur 2]", "[Fitur 3]"],
-    audience: "Kepala sekolah dan wakil kepala sekolah.",
-    guide: [
-      "Buka aplikasi melalui tombol Buka Aplikasi.",
-      "Masuk menggunakan akun kepala sekolah.",
-      "[Langkah berikutnya]",
+      "Aplikasi notulen dan daftar hadir rapat digital untuk sekolah dan lembaga pendidikan. Notulis mencatat jalannya rapat, sementara peserta mengisi daftar hadir dan tanda tangan dari HP masing-masing melalui link. Hasilnya bisa diunduh sebagai dokumen Word atau PDF lengkap dengan kop lembaga.",
+    features: [
+      "Daftar hadir lewat link: peserta mengisi dari HP tanpa akun, termasuk tanda tangan digital. Nama mereka langsung muncul di layar notulis.",
+      "Formulir daftar hadir yang bisa diubah: notulis bisa menambah, menghapus, dan mengurutkan pertanyaan, dengan 8 jenis jawaban seperti jawaban singkat, pilihan ganda, kotak centang, dan nomor HP.",
+      "Notulen rapat: mencatat rincian rapat, pembahasan, keputusan, dan tindak lanjut.",
+      "Unduh Word dan PDF: notulen dan daftar hadir tersusun rapi dengan kop surat, logo lembaga, dan kolom tanda tangan pimpinan.",
+      "Profil lembaga: nama, alamat, logo, dan pimpinan diatur sekali, lalu otomatis dipakai di semua dokumen.",
     ],
+    audience: "Notulis dan pimpinan rapat di sekolah, madrasah, dan lembaga pendidikan, serta peserta rapat (tanpa perlu akun).",
+    guide: [
+      "Buka aplikasi dan masuk dengan akun notulis.",
+      "Isi Profil lembaga (nama, alamat, logo, pimpinan), lalu simpan.",
+      "Tekan Buat rapat baru dan isi rincian rapat di tab Notulen.",
+      "Atur pertanyaan daftar hadir di tab Formulir, lalu simpan.",
+      "Bagikan link daftar hadir ke peserta lewat WhatsApp dari tab Daftar hadir.",
+      "Setelah rapat selesai, tekan Tutup pengisian, lalu unduh notulen dan daftar hadir di tab Unduh.",
+    ],
+    loginNote: "Notulis masuk di halaman awal. Peserta rapat tidak perlu login; cukup membuka link daftar hadir yang dibagikan notulis.",
     screenshots: [],
-    url: "#",
-    icon: "headmaster",
-    tone: "clay",
+    url: "https://qalbymeeting.netlify.app/",
+    icon: "meeting",
+    tone: "violet",
     active: true,
     order: 4,
   },
   {
-    slug: "q-meeting",
-    name: "Q_Meeting",
-    roles: ["Umum"],
-    roleLabel: "Umum",
-    short: "Rapat & notulen",
+    slug: "hari-santri-nasional-2026",
+    name: "Hari Santri Nasional 2026",
+    fullName: "Hari Santri Nasional 2026 — Kemah Santri PPM Darul Mahfudz",
+    roles: ["Umum", "Siswa"],
+    roleLabel: "Santri & Panitia",
+    short: "Kemah Santri 19–22 Oktober",
     description:
-      "[Deskripsi Q_Meeting, misalnya: jadwal rapat, notulen, dan daftar hadir rapat sekolah.]",
-    features: ["[Fitur 1]", "[Fitur 2]", "[Fitur 3]"],
-    audience: "Seluruh warga sekolah yang mengadakan atau mengikuti rapat.",
-    guide: [
-      "Buka aplikasi melalui tombol Buka Aplikasi.",
-      "Buat jadwal rapat dan undang peserta.",
-      "[Langkah berikutnya]",
+      "Aplikasi web untuk mengelola Hari Santri Nasional 2026 di PPM Darul Mahfudz Lekopadis (19–22 Oktober 2026). Aplikasi ini mengurus pendaftaran, kartu QR, absensi oleh panitia, kuis, catatan Expo Santri, dan sertifikat.",
+    features: [
+      "Pendaftaran peserta Kemah Santri, Bina Pendamping, Expo Santri, serta peserta dan mushahhih Bahts al-Masa’il, dengan link dokumen persyaratan dari Google Drive.",
+      "Kartu peserta ber-QR dan absensi oleh panitia dengan pemindai kamera, termasuk pembatalan jika salah pindai.",
+      "Kuis refleksi harian, nilai, dan kuis Bahts al-Masa’il.",
+      "Catatan penjualan, pengeluaran, dan untung/rugi Expo Santri, yang hasilnya bisa diunduh dalam bentuk Excel.",
+      "Pengajuan dan unduh sertifikat (PNG atau PDF) setelah disetujui admin.",
     ],
+    audience: "Santri peserta kegiatan, pendamping, peserta Expo Santri dan Bahts al-Masa’il, serta panitia dan admin kegiatan.",
+    guide: [
+      "Buka link aplikasi di browser ponsel, lalu pilih Daftar.",
+      "Pilih jenis kegiatan, isi data, dan tempel link Google Drive dokumen persyaratan.",
+      "Simpan kode peserta (HSN26-XXXXX) dan tunggu persetujuan admin.",
+      "Unduh kartu di menu Kartu, lalu tunjukkan QR ke panitia di setiap kegiatan.",
+      "Ikuti kegiatan: isi kuis, catat penjualan Expo, atau hadiri sesi Bahts al-Masa’il.",
+      "Setelah pengajuan dibuka admin, ajukan sertifikat di Kartu lalu Sertifikat.",
+    ],
+    loginNote: "Buka menu Daftar. Peserta memilih tab Masuk peserta dan memakai kode peserta. Panitia dan admin memilih tab Panitia/Admin dan memakai email serta kata sandi.",
     screenshots: [],
-    url: "#",
-    icon: "meeting",
-    tone: "violet",
+    url: "https://harisantri2026.netlify.app",
+    icon: "santri",
+    tone: "green",
     active: true,
     order: 5,
   },
   {
-    slug: "hari-santri-nasional",
-    name: "Hari Santri Nasional",
+    slug: "rapat-mts-darul-mahfudz",
+    name: "Rapat MTs Darul Mahfudz",
+    fullName: "Notulen & Daftar Hadir Rapat MTs Darul Mahfudz",
     roles: ["Umum"],
-    roleLabel: "Umum",
-    short: "Peringatan Hari Santri",
+    roleLabel: "MTs Darul Mahfudz",
+    short: "Notulen rapat MTs",
     description:
-      "[Deskripsi aplikasi Hari Santri Nasional, misalnya: informasi kegiatan, twibbon, dan ucapan peringatan 22 Oktober.]",
-    features: ["[Fitur 1]", "[Fitur 2]", "[Fitur 3]"],
-    audience: "Santri, siswa, guru, dan masyarakat umum.",
-    guide: [
-      "Buka aplikasi melalui tombol Buka Aplikasi.",
-      "[Langkah berikutnya]",
+      "Aplikasi notulen dan daftar hadir rapat digital untuk MTs Darul Mahfudz. Notulis mencatat jalannya rapat, sementara peserta mengisi daftar hadir dan tanda tangan dari HP masing-masing melalui link. Notulen dan daftar hadir bisa diunduh sebagai dokumen Word atau PDF lengkap dengan kop madrasah.",
+    features: [
+      "Daftar hadir lewat link: peserta mengisi nama, jabatan, mata pelajaran, nomor HP, kesan, dan saran, lalu menandatangani langsung dari HP. Nama mereka segera muncul di layar notulis.",
+      "Berbagi lewat WhatsApp: link daftar hadir bisa disalin atau langsung dibagikan ke grup WhatsApp.",
+      "Pengisian bisa ditutup: notulis menutup pengisian setelah rapat selesai, sehingga daftar hadir tidak berubah lagi.",
+      "Notulen rapat: mencatat agenda, waktu, tempat, pimpinan rapat, moderator, pembahasan, keputusan, dan tindak lanjut.",
+      "Unduh Word dan PDF: notulen dan daftar hadir tersusun rapi dengan kop MTs Darul Mahfudz dan kolom tanda tangan.",
     ],
+    audience: "Notulis, pimpinan, dan peserta rapat di MTs Darul Mahfudz.",
+    guide: [
+      "Buka aplikasi dan masuk sebagai notulis.",
+      "Buat rapat baru, lalu isi rincian rapat di tab Notulen.",
+      "Di tab Daftar hadir, salin link atau tekan Bagikan lewat WhatsApp untuk mengirimnya ke peserta.",
+      "Peserta membuka link, mengisi data, tanda tangan, lalu mengirim. Notulis juga bisa mengisikan untuk peserta lewat kolom Isi di perangkat ini.",
+      "Setelah rapat, lengkapi notulen lalu tekan Tutup pengisian.",
+      "Unduh notulen dan daftar hadir di tab Unduh, dalam format Word atau PDF.",
+    ],
+    loginNote: "Notulis masuk dengan email dan kata sandi di halaman awal. Peserta tidak perlu login; cukup mengisi lewat link daftar hadir yang dibagikan notulis.",
     screenshots: [],
-    url: "#",
-    icon: "santri",
-    tone: "green",
+    url: "https://admrapat.netlify.app/",
+    icon: "meeting",
+    tone: "teal",
     active: true,
     order: 6,
   },

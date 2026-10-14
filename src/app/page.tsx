@@ -127,7 +127,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONI */}
+      {/* TESTIMONI — tampil hanya jika data testimoni diisi */}
+      {testimonials.length > 0 && (
       <section className="container-site flex flex-col gap-8 pb-16 pt-14">
         <h2 className="section-title text-center">Kata mereka tentang Qalby</h2>
         <div className="grid gap-5 md:grid-cols-3">
@@ -147,7 +148,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+      )}
 
+      <div className="pt-10" />
       <CtaBanner />
     </>
   );

@@ -18,9 +18,9 @@ export function generateMetadata({ params }: Props): Metadata {
   const app = getApp(params.slug);
   if (!app) return {};
   return {
-    title: `${app.name} — ${app.short}`,
+    title: app.fullName,
     description: app.description,
-    openGraph: { title: `${app.name} | Qalby Learn`, description: app.description },
+    openGraph: { title: `${app.fullName} | Qalby Learn`, description: app.description },
   };
 }
 
@@ -67,7 +67,7 @@ export default function AppDetailPage({ params }: Props) {
                 {app.roleLabel}
               </span>
               <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl">{app.name}</h1>
-              <p className="text-lg text-[#D6D0EE]">{app.short}</p>
+              <p className="text-lg text-[#D6D0EE]">{app.fullName}</p>
             </div>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -79,14 +79,27 @@ export default function AppDetailPage({ params }: Props) {
             >
               Buka Aplikasi
             </a>
-            <a
-              href={app.loginUrl ?? app.url}
-              target={external ? "_blank" : undefined}
-              rel={external ? "noopener noreferrer" : undefined}
-              className="rounded-full border-[1.5px] border-[#8A79C7] px-7 py-4 font-semibold text-white transition hover:border-white"
-            >
-              Masuk / Unduh
-            </a>
+            {app.loginUrl && app.loginUrl !== app.url && (
+              <a
+                href={app.loginUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border-[1.5px] border-[#8A79C7] px-7 py-4 font-semibold text-white transition hover:border-white"
+              >
+                Halaman Masuk
+              </a>
+            )}
+            {app.extraLinks?.map((l) => (
+              <a
+                key={l.url}
+                href={l.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border-[1.5px] border-[#8A79C7] px-7 py-4 font-semibold text-white transition hover:border-white"
+              >
+                {l.label}
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -99,7 +112,7 @@ export default function AppDetailPage({ params }: Props) {
           </Section>
 
           <Section title="Fitur utama">
-            <ul className="grid gap-3 sm:grid-cols-2">
+            <ul className="grid gap-4">
               {app.features.map((f) => (
                 <li key={f} className="flex items-start gap-3">
                   <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-500 dark:bg-[#241A48] dark:text-brand-300">
@@ -157,9 +170,15 @@ export default function AppDetailPage({ params }: Props) {
               </div>
               <div className="flex justify-between gap-4">
                 <dt className="text-muted">Platform</dt>
-                <dd className="font-semibold">Web</dd>
+                <dd className="font-semibold">Web (HP & komputer)</dd>
               </div>
             </dl>
+            {app.loginNote && (
+              <div className="rounded-xl bg-brand-50 p-4 text-sm leading-relaxed text-brand-700 dark:bg-[#1A1333] dark:text-brand-100">
+                <strong className="block">Cara masuk</strong>
+                {app.loginNote}
+              </div>
+            )}
             <a href={app.url} className="btn-primary" target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
               Buka {app.name}
             </a>

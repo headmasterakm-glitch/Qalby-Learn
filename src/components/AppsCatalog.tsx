@@ -16,7 +16,7 @@ export default function AppsCatalog({ apps }: { apps: AppItem[] }) {
   const q = query.trim().toLowerCase();
   const shown = apps.filter((a) => {
     const roleOk = filter === "Semua" || a.roles.includes(filter as Role);
-    const text = `${a.name} ${a.short} ${a.description} ${a.roleLabel}`.toLowerCase();
+    const text = `${a.name} ${a.fullName} ${a.short} ${a.description} ${a.roleLabel}`.toLowerCase();
     return roleOk && (q === "" || text.includes(q));
   });
 

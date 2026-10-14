@@ -6,7 +6,7 @@ import AppIcon, { toneClass } from "@/components/AppIcon";
 
 export const metadata: Metadata = {
   title: "Masuk",
-  description: "Masuk ke aplikasi ekosistem Qalby: Q_Student, Q_Teacher, Q_Assessment, Q_Headmaster, Q_Meeting, dan lainnya.",
+  description: "Masuk ke aplikasi ekosistem Qalby Learn: asesmen, administrasi guru dan kepala madrasah, rapat, dan kegiatan santri.",
 };
 
 export default function MasukPage() {
@@ -46,6 +46,7 @@ export default function MasukPage() {
                     </span>
                   </div>
                 </div>
+                {app.loginNote && <p className="text-muted flex-1 text-sm leading-relaxed">{app.loginNote}</p>}
                 <a
                   href={href}
                   target={external ? "_blank" : undefined}

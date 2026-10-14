@@ -31,7 +31,7 @@ export default function NewsDetailPage({ params }: Props) {
   const paragraphs =
     item.content && item.content.length > 0
       ? item.content
-      : [item.summary, "[Isi lengkap berita ditulis di sini. Tambahkan teks di file src/data/news.ts pada bagian content.]"];
+      : [item.summary];
 
   return (
     <>

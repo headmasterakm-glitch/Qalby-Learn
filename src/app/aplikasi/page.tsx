@@ -7,7 +7,7 @@ import CtaBanner from "@/components/CtaBanner";
 export const metadata: Metadata = {
   title: "Katalog Aplikasi",
   description:
-    "Daftar lengkap aplikasi ekosistem Qalby untuk siswa, guru, kepala sekolah, dan umum: Q_Student, Q_Teacher, Q_Assessment, Q_Headmaster, Q_Meeting, dan lainnya.",
+    "Daftar lengkap aplikasi Qalby Learn: Asesmen Terpadu, Administrasi Guru & Karyawan, ADM KAMAD, Qalby Meeting, Hari Santri Nasional 2026, dan lainnya.",
 };
 
 export default function AplikasiPage() {
