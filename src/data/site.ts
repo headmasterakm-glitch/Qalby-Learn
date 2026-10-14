@@ -1,0 +1,57 @@
+// Pengaturan umum situs. Ganti nilai bertanda [ ... ] dengan data asli.
+export const site = {
+  name: "Qalby Learn",
+  tagline: "Belajar dengan Hati, Mengelola dengan Cerdas",
+  subtitle: "Assessment and Education", // teks di bawah logo
+  logo: {
+    full: "/brand/logo-qalbylearn.png",
+    mark: "/brand/logo-q.png",
+  },
+  description:
+    "Qalby Learn adalah portal ekosistem aplikasi pendidikan untuk siswa, guru, dan kepala sekolah, lengkap dengan artikel dan berita pendidikan terbaru.",
+  url: "https://qalbylearn.id", // [ganti dengan domain Anda]
+  contact: {
+    email: "[email@domain.com]",
+    whatsapp: "[08xx-xxxx-xxxx]",
+    address: "[Alamat lengkap]",
+  },
+  social: [
+    { name: "Instagram", href: "#" },
+    { name: "YouTube", href: "#" },
+    { name: "Facebook", href: "#" },
+  ],
+  nav: [
+    { label: "Beranda", href: "/" },
+    { label: "Aplikasi", href: "/aplikasi" },
+    { label: "Artikel", href: "/artikel" },
+    { label: "News", href: "/news" },
+    { label: "Tentang", href: "/tentang" },
+    { label: "Kontak", href: "/kontak" },
+  ],
+};
+
+// Statistik beranda — DATA CONTOH, ganti dengan angka sebenarnya.
+export const stats = [
+  { value: "[0]", label: "Sekolah pengguna" },
+  { value: "[0]", label: "Guru aktif" },
+  { value: "[0]", label: "Siswa terdaftar" },
+];
+
+// Testimoni — DATA CONTOH, ganti dengan testimoni asli.
+export const testimonials = [
+  {
+    quote: "[Kutipan testimoni dari guru pengguna Q_Teacher.]",
+    name: "[Nama Guru]",
+    role: "Guru, [Nama Sekolah]",
+  },
+  {
+    quote: "[Kutipan testimoni dari kepala sekolah pengguna Q_Headmaster.]",
+    name: "[Nama Kepala Sekolah]",
+    role: "Kepala Sekolah, [Nama Sekolah]",
+  },
+  {
+    quote: "[Kutipan testimoni dari siswa pengguna Q_Student.]",
+    name: "[Nama Siswa]",
+    role: "Siswa, [Nama Sekolah]",
+  },
+];
