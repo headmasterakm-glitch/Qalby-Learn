@@ -39,6 +39,40 @@ export type AppItem = {
 };
 
 export const apps: AppItem[] = [
+    {
+    slug: "all-event",
+    name: "All Event",
+    fullName: "All Event — Aplikasi Pengelolaan Kegiatan",
+    roles: ["Umum", "Siswa"],
+    roleLabel: "Panitia & Peserta",
+    short: "Pendaftaran hingga sertifikat",
+    description:
+      "Aplikasi web untuk mengelola berbagai kegiatan lembaga, seperti perkemahan, lomba, pelatihan, dan seminar. Seluruh proses dikelola dalam satu aplikasi yang dapat dibuka dari HP, mulai dari pendaftaran peserta, kartu QR, absensi, dan kuis sampai sertifikat.",
+    features: [
+      "Pendaftaran peserta secara daring dari HP atau laptop.",
+      "Kartu peserta ber-QR untuk absensi cepat oleh panitia di setiap sesi kegiatan.",
+      "Absensi dengan pemindai kamera, yang rekapnya tersimpan otomatis.",
+      "Kuis untuk peserta selama kegiatan berlangsung.",
+      "Sertifikat yang dapat diajukan dan diunduh sendiri oleh peserta.",
+    ],
+    audience:
+      "Panitia kegiatan sekolah, madrasah, dan pesantren, serta peserta kegiatan.",
+    guide: [
+      "Buka aplikasi All Event di browser HP atau laptop.",
+      "Peserta memilih kegiatan, lalu mengisi formulir pendaftaran.",
+      "Setelah disetujui panitia, peserta mengunduh kartu ber-QR.",
+      "Tunjukkan kode QR kepada panitia di setiap sesi agar kehadiran tercatat.",
+      "Setelah kegiatan selesai, ajukan dan unduh sertifikat.",
+    ],
+    loginNote: "Peserta mendaftar langsung dari halaman utama aplikasi. Panitia masuk dengan akun yang diberikan admin.",
+    screenshots: [],
+    url: "https://allaventqalby.netlify.app",
+    loginUrl: "https://allaventqalby.netlify.app",
+    icon: "santri",
+    tone: "gold",
+    active: true,
+    order: 7,
+  },
   {
     slug: "asesmen-terpadu",
     name: "Qalby Learn Asesmen",
