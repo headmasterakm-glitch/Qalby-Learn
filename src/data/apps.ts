@@ -40,6 +40,38 @@ export type AppItem = {
 
 export const apps: AppItem[] = [
     {
+    slug: "survei-langsung",
+    name: "Survei Langsung",
+    fullName: "QalbyLearn Survei Langsung",
+    roles: ["Guru", "Umum"],
+    roleLabel: "Fasilitator & Peserta",
+    short: "Survei pelatihan, hasil langsung",
+    description:
+      "Aplikasi survei persepsi awal untuk peserta pelatihan dan seminar. Fasilitator menyiapkan survei, peserta mengisi dari HP, dan hasilnya langsung tampil di layar presentasi. Bahan diskusi pun tersedia saat itu juga.",
+    features: [
+      "Halaman fasilitator untuk menyiapkan dan mengelola survei sesi pelatihan atau seminar.",
+      "Peserta mengisi survei langsung dari HP tanpa perlu memasang aplikasi.",
+      "Layar presentasi yang menampilkan hasil survei secara langsung kepada seluruh peserta.",
+      "Hasil persepsi awal peserta dapat dipakai untuk menyesuaikan materi sebelum sesi dimulai.",
+    ],
+    audience:
+      "Fasilitator, narasumber, dan panitia pelatihan atau seminar, serta peserta kegiatan.",
+    guide: [
+      "Fasilitator membuka menu Fasilitator dan menyiapkan survei.",
+      "Tampilkan menu Layar Presentasi di proyektor.",
+      "Peserta membuka menu Peserta dari HP, lalu mengisi survei.",
+      "Hasil survei langsung muncul di layar presentasi dan siap didiskusikan bersama.",
+    ],
+    loginNote: "Fasilitator masuk melalui menu Fasilitator. Peserta cukup membuka menu Peserta dari HP.",
+    screenshots: [],
+    url: "https://qalbysurvey.netlify.app",
+    loginUrl: "https://qalbysurvey.netlify.app/#fasilitator",
+    icon: "meeting",
+    tone: "violet",
+    active: true,
+    order: 8,
+  },
+    {
     slug: "all-event",
     name: "All Event",
     fullName: "All Event — Aplikasi Pengelolaan Kegiatan",
