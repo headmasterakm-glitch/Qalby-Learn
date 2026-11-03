@@ -40,6 +40,38 @@ export type AppItem = {
 
 export const apps: AppItem[] = [
     {
+    slug: "assessment-autentik",
+    name: "Assessment Autentik",
+    fullName: "Qalby Assessment Autentik",
+    roles: ["Guru"],
+    roleLabel: "Guru",
+    short: "Penilaian autentik berbasis KBC",
+    description:
+      "Aplikasi penilaian autentik yang mencakup tiga ranah: kognitif, psikomotorik, dan afektif, berbasis Kurikulum Berbasis Cinta (KBC). Guru dapat menilai proses dan hasil belajar siswa secara utuh, tidak hanya dari tes tertulis.",
+    features: [
+      "Penilaian ranah kognitif untuk mengukur pemahaman dan penalaran siswa.",
+      "Penilaian ranah psikomotorik melalui unjuk kerja, praktik, proyek, dan produk.",
+      "Penilaian ranah afektif untuk sikap dan karakter yang selaras dengan nilai Kurikulum Berbasis Cinta.",
+      "Rekap nilai ketiga ranah dalam satu tempat sebagai bahan laporan dan tindak lanjut.",
+    ],
+    audience:
+      "Guru dan wali kelas di sekolah, madrasah, dan pesantren yang menerapkan penilaian autentik.",
+    guide: [
+      "Buka aplikasi Assessment Autentik di browser HP atau laptop.",
+      "Pilih kelas dan siswa yang akan dinilai.",
+      "Isi penilaian kognitif, psikomotorik, dan afektif sesuai instrumen.",
+      "Simpan, lalu lihat rekap nilai untuk laporan dan tindak lanjut.",
+    ],
+    loginNote: "Guru membuka aplikasi melalui tombol Buka Aplikasi.",
+    screenshots: [],
+    url: "https://assessment-authentic.netlify.app",
+    loginUrl: "https://assessment-authentic.netlify.app",
+    icon: "assessment",
+    tone: "teal",
+    active: true,
+    order: 9,
+  },
+    {
     slug: "survei-langsung",
     name: "Survei Langsung",
     fullName: "QalbyLearn Survei Langsung",
