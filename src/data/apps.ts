@@ -40,6 +40,41 @@ export type AppItem = {
 
 export const apps: AppItem[] = [
     {
+    slug: "darul-mahfudz-pay",
+    name: "Darul Mahfudz Pay",
+    fullName: "Darul Mahfudz Pay — Pembayaran Nontunai Santri",
+    roles: ["Siswa", "Umum"],
+    roleLabel: "Santri, Kasir & Pengelola",
+    short: "Pembayaran nontunai santri",
+    description:
+      "Aplikasi pembayaran nontunai untuk lingkungan PPM Darul Mahfudz. Setiap santri memiliki kartu santri ber-barcode yang berisi saldo, dan bisa dipakai berbelanja di Kantin Putra, Kantin Putri, Kantin SPM Ula, Butik, Laundry, dan Depot tanpa membawa uang tunai. Orang tua menerima rekap belanja harian lewat WhatsApp atau email, dan pengelola dapat memantau penjualan serta saldo seluruh santri secara langsung dari satu aplikasi.",
+    features: [
+      "Kartu santri ber-barcode: satu kartu untuk semua kantin dan unit usaha, berlaku sampai santri lulus jenjang.",
+      "Bayar cepat di kasir: kasir cukup men-scan kartu dengan scanner atau kamera HP, lalu saldo terpotong otomatis.",
+      "Laporan untuk orang tua: rekap belanja harian dan pengingat saldo menipis dikirim lewat WhatsApp atau email.",
+      "Pantauan untuk pengelola: laporan penjualan harian dan bulanan per unit, saldo setiap santri, dan pengaturan akun kasir.",
+      "Aman: setiap kasir punya akun sendiri, kartu hilang bisa diblokir seketika, dan semua transaksi tercatat.",
+    ],
+    audience:
+      "Santri PPM Darul Mahfudz, orang tua santri, kasir kantin dan unit usaha, serta pengelola keuangan pesantren.",
+    guide: [
+      "Pengelola mendaftarkan santri dan mencetak kartu santri ber-barcode.",
+      "Orang tua mengisi saldo kartu santri melalui pengelola.",
+      "Santri berbelanja di kantin atau unit usaha dengan menunjukkan kartunya.",
+      "Kasir men-scan kartu, lalu saldo terpotong otomatis.",
+      "Orang tua menerima rekap belanja harian lewat WhatsApp atau email.",
+      "Jika kartu hilang, segera laporkan ke pengelola agar kartu diblokir.",
+    ],
+    loginNote: "Kasir dan pengelola masuk dengan akun masing-masing yang dibuat oleh pengelola.",
+    screenshots: [],
+    url: "https://darul-mahfudz-pay.netlify.app",
+    loginUrl: "https://darul-mahfudz-pay.netlify.app",
+    icon: "santri",
+    tone: "green",
+    active: true,
+    order: 11,
+  },
+    {
     slug: "pmbm-darul-mahfudz",
     name: "PMBM Darul Mahfudz",
     fullName: "PMBM Darul Mahfudz — Penerimaan Murid Baru Madrasah",
