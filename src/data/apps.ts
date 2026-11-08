@@ -67,10 +67,10 @@ export const apps: AppItem[] = [
     extraLinks: [
       { label: "Daftar sekarang", url: "https://pmbm-darulmahfudz.netlify.app/#publik" },
     ],
-        screenshots: [
-      { src: "/screenshots/pmbm-1.jpg", width: 589, height: 1080 },
-      { src: "/screenshots/pmbm-2.jpg", width: 589, height: 1080 },
-      { src: "/screenshots/pmbm-3.jpg", width: 589, height: 1080 },
+            screenshots: [
+      "/screenshots/pmbm-1.jpg",
+      "/screenshots/pmbm-2.jpg",
+      "/screenshots/pmbm-3.jpg",
     ],
     url: "https://pmbm-darulmahfudz.netlify.app",
     loginUrl: "https://pmbm-darulmahfudz.netlify.app/#petugas",
