@@ -40,6 +40,42 @@ export type AppItem = {
 
 export const apps: AppItem[] = [
     {
+    slug: "pmbm-darul-mahfudz",
+    name: "PMBM Darul Mahfudz",
+    fullName: "PMBM Darul Mahfudz — Penerimaan Murid Baru Madrasah",
+    roles: ["Umum", "Siswa"],
+    roleLabel: "Calon Murid & Panitia",
+    short: "Pendaftaran murid baru daring",
+    description:
+      "Aplikasi Penerimaan Murid Baru Madrasah (PMBM) Darul Mahfudz untuk jenjang SPM Ula, MTs, dan MA. Calon murid dan orang tua dapat mendaftar secara daring dari HP, sedangkan panitia mengelola data pendaftar dalam satu tempat.",
+    features: [
+      "Pendaftaran daring untuk jenjang SPM Ula, MTs, dan MA.",
+      "Formulir data calon murid dan orang tua yang dapat diisi dari HP atau laptop.",
+      "Halaman khusus petugas untuk memeriksa dan mengelola data pendaftar.",
+      "Rekap pendaftar per jenjang sebagai bahan seleksi dan laporan panitia.",
+    ],
+    audience:
+      "Calon murid dan orang tua yang ingin mendaftar ke madrasah Darul Mahfudz, serta panitia PMBM.",
+    guide: [
+      "Buka aplikasi PMBM Darul Mahfudz di browser HP atau laptop.",
+      "Pilih jenjang yang dituju: SPM Ula, MTs, atau MA.",
+      "Isi formulir pendaftaran dengan lengkap dan benar.",
+      "Kirim pendaftaran, lalu simpan bukti atau nomor pendaftaran.",
+      "Panitia memeriksa data melalui menu Masuk petugas.",
+    ],
+    loginNote: "Calon murid mendaftar langsung dari halaman utama. Panitia masuk melalui menu Masuk petugas.",
+    extraLinks: [
+      { label: "Daftar sekarang", url: "https://pmbm-darulmahfudz.netlify.app/#publik" },
+    ],
+    screenshots: [],
+    url: "https://pmbm-darulmahfudz.netlify.app",
+    loginUrl: "https://pmbm-darulmahfudz.netlify.app/#petugas",
+    icon: "student",
+    tone: "blue",
+    active: true,
+    order: 10,
+  },
+    {
     slug: "assessment-autentik",
     name: "Assessment Autentik",
     fullName: "Qalby Assessment Autentik",
